@@ -9,16 +9,19 @@ Player who hits first all 3 ships wins.
 //User input variable enabler
 const prompt = require("prompt-sync")();
 
-const numOfShips = 3;
-const missiles = 10;
+let numOfFriendlyShips = 3;
+let numOfEnemyShips = 3;
 
-//ship locations
+let friendlyMissiles = 10;
+let enemyMissiles = 10;
+
+//friendly ship locations
 let shipPosition1 = "";
 let shipPosition2 = "";
 let shipPosition3 = "";
 
 
-//random Coordinates generator
+//random Coordinates for enemy ships generator
 const randomCoordinates = () => {
     //random letter generator
     const letterPositions = ["A", "B", "C", "D", "E"];
@@ -30,12 +33,12 @@ const randomCoordinates = () => {
     const coordinates = letter + randomNumber;
     return coordinates
 }
-let enemeyShipCoordinate1 = randomCoordinates()
-let enemeyShipCoordinate2 = randomCoordinates()
-let enemeyShipCoordinate3 = randomCoordinates()
+let enemyShipCoordinate1 = randomCoordinates();
+let enemyShipCoordinate2 = randomCoordinates();
+let enemyShipCoordinate3 = randomCoordinates();
 
-//boat selection logic
-const friendlyBoatSelection = () => {
+//friendly ship selection logic
+const friendlyShipSelection = () => {
 
     //GameGrid
     let grid = {
@@ -116,28 +119,48 @@ const friendlyBoatSelection = () => {
     // console.log(grid)
 }
 
-const enemyBoatSelection = () => {
-    enemeyShipPosition1 = prompt("Where is the enemy ship Captain? (A2, C3, ...): ").toUpperCase();
-    if (!((enemeyShipPosition1[0] === "A" || enemeyShipPosition1[0] === "a" ||
-        enemeyShipPosition1[0] === "B" || enemeyShipPosition1[0] === "b" ||
-        enemeyShipPosition1[0] === "C" || enemeyShipPosition1[0] === "c" ||
-        enemeyShipPosition1[0] === "D" || enemeyShipPosition1[0] === "d" ||
-        enemeyShipPosition1[0] === "E" || enemeyShipPosition1[0] === "e")
+//my turn selecting enemy ship
+const myTurn = () => {
+    console.log("Shoot down the enemy ship!")
+    enemyShipPosition1 = prompt("Where is the enemy ship hiding, Captain? (A0, C3, ...): ").toUpperCase();
+
+    if (!((enemyShipPosition1[0] === "A" || enemyShipPosition1[0] === "a" ||
+        enemyShipPosition1[0] === "B" || enemyShipPosition1[0] === "b" ||
+        enemyShipPosition1[0] === "C" || enemyShipPosition1[0] === "c" ||
+        enemyShipPosition1[0] === "D" || enemyShipPosition1[0] === "d" ||
+        enemyShipPosition1[0] === "E" || enemyShipPosition1[0] === "e")
         &&
-        (enemeyShipPosition1[1] === "0" || enemeyShipPosition1[1] === "1" ||
-            enemeyShipPosition1[1] === "2" || enemeyShipPosition1[1] === "3" ||
-            enemeyShipPosition1[1] === "4"))) {
+        (enemyShipPosition1[1] === "0" || enemyShipPosition1[1] === "1" ||
+            enemyShipPosition1[1] === "2" || enemyShipPosition1[1] === "3" ||
+            enemyShipPosition1[1] === "4"))) {
         console.log("Invalid coordinates.");
-    } else if (condition) {
-        
+    } else if (enemyShipPosition1 == enemyShipCoordinate1 || enemyShipPosition1 == enemyShipCoordinate2 ||  enemyShipPosition1 == enemyShipCoordinate3) {
+        console.log("You have shooted down their ship!")
+        numOfEnemyShips--;
+        friendlyMissiles--;
+        console.log(`${numOfEnemyShips} more ship/s to go!`)
+    } else {
+        console.log("You missed!")
+        friendlyMissiles--;
     }
 }
 
-// friendlyBoatSelection();
+//matching if enemy shots hit my ships
+const enemyTurn = () => {
+    console.log("Enemy turn!")
+    const randomLocation = randomCoordinates()
+    if (randomLocation == shipPosition1 || randomLocation == shipPosition2 || randomLocation == shipPosition3){
 
-// enemyBoatSelection();
+    }
+
+}
 
 
+// friendlyShipSelection();
 
+// myTurn();
+
+
+//TODO need to figure out a way how delete the ships from the grid once they're shoted down
 
 
