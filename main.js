@@ -6,6 +6,17 @@ You try to guess location of enemy ships. if you hit an enemy ship you get a poi
 Player who hits first all 3 ships wins.
 */
 
+
+//GameGrid
+let grid = {
+    "r": [0, 1, 2, 3, 4],
+    "-": "-------------",
+    "A": [0, 0, 0, 0, 0],
+    "B": [0, 0, 0, 0, 0],
+    "C": [0, 0, 0, 0, 0],
+    "D": [0, 0, 0, 0, 0],
+    "E": [0, 0, 0, 0, 0]
+};
 //User input variable enabler
 const prompt = require("prompt-sync")();
 
@@ -40,17 +51,6 @@ let enemyShipCoordinate3 = randomCoordinates();
 //friendly ship selection logic
 const friendlyShipSelection = () => {
 
-    //GameGrid
-    let grid = {
-        "r": [0, 1, 2, 3, 4],
-        "-": "-------------",
-        "A": [0, 0, 0, 0, 0],
-        "B": [0, 0, 0, 0, 0],
-        "C": [0, 0, 0, 0, 0],
-        "D": [0, 0, 0, 0, 0],
-        "E": [0, 0, 0, 0, 0]
-    };
-    
     //Game starting messages
     console.log("Welcome to the battleship!")
     console.log(grid)
@@ -123,18 +123,18 @@ const friendlyShipSelection = () => {
 const myTurn = () => {
     console.log("Shoot down the enemy ship!")
     enemyShipPosition1 = prompt("Where is the enemy ship hiding, Captain? (A0, C3, ...): ").toUpperCase();
-    
+
     if (!((enemyShipPosition1[0] === "A" || enemyShipPosition1[0] === "a" ||
-    enemyShipPosition1[0] === "B" || enemyShipPosition1[0] === "b" ||
-    enemyShipPosition1[0] === "C" || enemyShipPosition1[0] === "c" ||
-    enemyShipPosition1[0] === "D" || enemyShipPosition1[0] === "d" ||
-    enemyShipPosition1[0] === "E" || enemyShipPosition1[0] === "e")
-    &&
-    (enemyShipPosition1[1] === "0" || enemyShipPosition1[1] === "1" ||
-    enemyShipPosition1[1] === "2" || enemyShipPosition1[1] === "3" ||
-    enemyShipPosition1[1] === "4"))) {
+        enemyShipPosition1[0] === "B" || enemyShipPosition1[0] === "b" ||
+        enemyShipPosition1[0] === "C" || enemyShipPosition1[0] === "c" ||
+        enemyShipPosition1[0] === "D" || enemyShipPosition1[0] === "d" ||
+        enemyShipPosition1[0] === "E" || enemyShipPosition1[0] === "e")
+        &&
+        (enemyShipPosition1[1] === "0" || enemyShipPosition1[1] === "1" ||
+            enemyShipPosition1[1] === "2" || enemyShipPosition1[1] === "3" ||
+            enemyShipPosition1[1] === "4"))) {
         console.log("Invalid coordinates.");
-    } else if (enemyShipPosition1 == enemyShipCoordinate1 || enemyShipPosition1 == enemyShipCoordinate2 ||  enemyShipPosition1 == enemyShipCoordinate3) {
+    } else if (enemyShipPosition1 == enemyShipCoordinate1 || enemyShipPosition1 == enemyShipCoordinate2 || enemyShipPosition1 == enemyShipCoordinate3) {
         console.log("You have shooted down their ship!")
         numOfEnemyShips--;
         friendlyMissiles--;
@@ -151,12 +151,12 @@ const myTurn = () => {
 const enemyTurn = () => {
     console.log("Enemy turn!")
     const randomLocation = randomCoordinates()
-    if (randomLocation == shipPosition1){
+    if (randomLocation == shipPosition1) {
 
     } else if (randomLocation == shipPosition2) {
-        
+
     } else if (randomLocation == shipPosition3) {
-        
+
     }
 
 }
