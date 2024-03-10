@@ -162,7 +162,7 @@ const enemyTurn = () => {
 }
 
 
-// friendlyShipSelection();
+friendlyShipSelection()
 
 // myTurn();
 
