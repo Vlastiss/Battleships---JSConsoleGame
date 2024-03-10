@@ -1,8 +1,17 @@
 /* 
-BattleShip game, Beginning of the game you are pressented with a game board (grid) you choose a location of your 3 ships.
-You have 10 missiles at the start of the game.
-You try to guess location of enemy ships.
-Player who hits more ships wins.
+BattleShips!
+-Select 3 locations of your ship (A0 - E4);
+-Randomly generate 3 enemy ship locations.
+---while loop
+-Select a location of the enemy ship.
+    if shot down:
+        delete the ship from the grid
+        display the updated grid
+        update missiles
+-computer tries to guess location of your 3 ships.
+    if shot down:
+        delete the ship from the grid
+        display the updated grid
 */
 
 
