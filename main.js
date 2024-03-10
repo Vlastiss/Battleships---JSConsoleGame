@@ -123,16 +123,16 @@ const friendlyShipSelection = () => {
 const myTurn = () => {
     console.log("Shoot down the enemy ship!")
     enemyShipPosition1 = prompt("Where is the enemy ship hiding, Captain? (A0, C3, ...): ").toUpperCase();
-
+    
     if (!((enemyShipPosition1[0] === "A" || enemyShipPosition1[0] === "a" ||
-        enemyShipPosition1[0] === "B" || enemyShipPosition1[0] === "b" ||
-        enemyShipPosition1[0] === "C" || enemyShipPosition1[0] === "c" ||
-        enemyShipPosition1[0] === "D" || enemyShipPosition1[0] === "d" ||
-        enemyShipPosition1[0] === "E" || enemyShipPosition1[0] === "e")
-        &&
-        (enemyShipPosition1[1] === "0" || enemyShipPosition1[1] === "1" ||
-            enemyShipPosition1[1] === "2" || enemyShipPosition1[1] === "3" ||
-            enemyShipPosition1[1] === "4"))) {
+    enemyShipPosition1[0] === "B" || enemyShipPosition1[0] === "b" ||
+    enemyShipPosition1[0] === "C" || enemyShipPosition1[0] === "c" ||
+    enemyShipPosition1[0] === "D" || enemyShipPosition1[0] === "d" ||
+    enemyShipPosition1[0] === "E" || enemyShipPosition1[0] === "e")
+    &&
+    (enemyShipPosition1[1] === "0" || enemyShipPosition1[1] === "1" ||
+    enemyShipPosition1[1] === "2" || enemyShipPosition1[1] === "3" ||
+    enemyShipPosition1[1] === "4"))) {
         console.log("Invalid coordinates.");
     } else if (enemyShipPosition1 == enemyShipCoordinate1 || enemyShipPosition1 == enemyShipCoordinate2 ||  enemyShipPosition1 == enemyShipCoordinate3) {
         console.log("You have shooted down their ship!")
@@ -145,12 +145,18 @@ const myTurn = () => {
     }
 }
 
+//TODO need to figure out a way how delete the ships from the grid once they're shoted down
+
 //matching if enemy shots hit my ships
 const enemyTurn = () => {
     console.log("Enemy turn!")
     const randomLocation = randomCoordinates()
-    if (randomLocation == shipPosition1 || randomLocation == shipPosition2 || randomLocation == shipPosition3){
+    if (randomLocation == shipPosition1){
 
+    } else if (randomLocation == shipPosition2) {
+        
+    } else if (randomLocation == shipPosition3) {
+        
     }
 
 }
@@ -161,6 +167,5 @@ const enemyTurn = () => {
 // myTurn();
 
 
-//TODO need to figure out a way how delete the ships from the grid once they're shoted down
 
 
