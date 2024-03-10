@@ -1,9 +1,8 @@
 /* 
 BattleShip game, Beginning of the game you are pressented with a game board (grid) you choose a location of your 3 ships.
-Game begins.
 You have 10 missiles at the start of the game.
-You try to guess location of enemy ships. if you hit an enemy ship you get a point.
-Player who hits first all 3 ships wins.
+You try to guess location of enemy ships.
+Player who hits more ships wins.
 */
 
 
