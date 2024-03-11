@@ -50,8 +50,8 @@ const prompt = require("prompt-sync")();
 let numOfFriendlyShips = 3;
 let numOfEnemyShips = 3;
 
-let friendlyMissiles = 10;
-let enemyMissiles = 10;
+let friendlyMissiles = 5;
+let enemyMissiles = 5;
 
 //friendly ship locations
 let shipPosition1 = "";
