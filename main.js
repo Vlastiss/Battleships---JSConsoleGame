@@ -180,6 +180,7 @@ const friendlyShipSelection = () => {
 
 //my turn selecting enemy ship
 const myTurn = () => {
+    console.table(enemyShipsGrid);
     console.log();
     console.log("Your turn!");
     console.log("Locate the enemy ship!");
@@ -306,14 +307,14 @@ while (
     friendlyMissiles > 0 &&
     enemyMissiles > 0
 ) {
-    console.log("---------------------------------------------------------------");
+    console.clear()
     console.log(`Round ${turnCounter}`);
     turnCounter++;
 
     myTurn();
+    console.clear()
     enemyTurn();
 
-    console.log(`(Your Last tried location was: ${enemyShipPosition})`);
     console.log(`Number of your ships left: ${numOfFriendlyShips}`);
     console.log(`Number of enemy ships left: ${numOfEnemyShips}`);
     console.log();
