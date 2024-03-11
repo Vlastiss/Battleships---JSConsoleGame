@@ -16,7 +16,7 @@ BattleShips!
 
 - Characters on the grid
     M = my Missed shot
-    E = enemey missed shot
+    E = enemy missed shot
     X = locations of my ship
     H = hitted ship
 */
