@@ -179,9 +179,7 @@ const friendlyShipSelection = () => {
 
 //my turn selecting enemy ship
 const myTurn = () => {
-    console.log(enemyShipCoordinate1)
-    console.log(enemyShipCoordinate2)
-    console.log(enemyShipCoordinate3)
+
     console.log("Your turn!");
     console.log("Locate the enemy ship!");
 
