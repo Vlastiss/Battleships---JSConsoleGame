@@ -97,16 +97,15 @@ const friendlyShipSelection = () => {
 
     let condition = false;
     while (!condition) {
-        shipPosition1 = prompt(
-            "Please enter 1.position of your ship: "
-        ).toUpperCase();
+        shipPosition1 = prompt("Please enter 1.position of your ship: ").toUpperCase();
         if (
             !(
                 (shipPosition1[0] === "A" ||
                     shipPosition1[0] === "B" ||
                     shipPosition1[0] === "C" ||
                     shipPosition1[0] === "D" ||
-                    shipPosition1[0] === "E") &&
+                    shipPosition1[0] === "E") 
+                &&
                 (shipPosition1[1] === "0" ||
                     shipPosition1[1] === "1" ||
                     shipPosition1[1] === "2" ||
@@ -123,16 +122,15 @@ const friendlyShipSelection = () => {
 
     condition = false;
     while (!condition) {
-        shipPosition2 = prompt(
-            "Please enter 2.position of your ship: "
-        ).toUpperCase();
+        shipPosition2 = prompt("Please enter 2.position of your ship: ").toUpperCase();
         if (
             !(
                 (shipPosition2[0] === "A" ||
                     shipPosition2[0] === "B" ||
                     shipPosition2[0] === "C" ||
                     shipPosition2[0] === "D" ||
-                    shipPosition2[0] === "E") &&
+                    shipPosition2[0] === "E") 
+                &&
                 (shipPosition2[1] === "0" ||
                     shipPosition2[1] === "1" ||
                     shipPosition2[1] === "2" ||
@@ -151,16 +149,15 @@ const friendlyShipSelection = () => {
 
     condition = false;
     while (!condition) {
-        shipPosition3 = prompt(
-            "Please enter 3.position of your ship: "
-        ).toUpperCase();
+        shipPosition3 = prompt("Please enter 3.position of your ship: ").toUpperCase();
         if (
             !(
                 (shipPosition3[0] === "A" ||
                     shipPosition3[0] === "B" ||
                     shipPosition3[0] === "C" ||
                     shipPosition3[0] === "D" ||
-                    shipPosition3[0] === "E") &&
+                    shipPosition3[0] === "E") 
+                &&
                 (shipPosition3[1] === "0" ||
                     shipPosition3[1] === "1" ||
                     shipPosition3[1] === "2" ||
@@ -189,12 +186,8 @@ const myTurn = () => {
 
     let condition = false;
     while (!condition) {
-        enemyShipPosition = prompt(
-            "Where is the enemy ship hiding, Captain? "
-        ).toUpperCase();
-        console.log(
-            "---------------------------------------------------------------"
-        );
+        enemyShipPosition = prompt("Where is the enemy ship hiding, Captain? ").toUpperCase();
+        console.log("---------------------------------------------------------------");
         console.log();
         if (
             !(
@@ -202,7 +195,8 @@ const myTurn = () => {
                     enemyShipPosition[0] === "B" ||
                     enemyShipPosition[0] === "C" ||
                     enemyShipPosition[0] === "D" ||
-                    enemyShipPosition[0] === "E") &&
+                    enemyShipPosition[0] === "E") 
+                &&
                 (enemyShipPosition[1] === "0" ||
                     enemyShipPosition[1] === "1" ||
                     enemyShipPosition[1] === "2" ||
@@ -224,6 +218,7 @@ const myTurn = () => {
         enemyShipsGrid[enemyShipPosition[0]][enemyShipPosition[1]] = "H";
         console.table(enemyShipsGrid);
         enemyShipCoordinate1 = "";
+
     } else if (enemyShipPosition == enemyShipCoordinate2) {
         console.log("You have shooted down their ship!");
         numOfEnemyShips--;
@@ -232,6 +227,7 @@ const myTurn = () => {
         enemyShipsGrid[enemyShipPosition[0]][enemyShipPosition[1]] = "H";
         console.table(enemyShipsGrid);
         enemyShipCoordinate2 = "";
+
     } else if (enemyShipPosition == enemyShipCoordinate3) {
         console.log("You have shooted down their ship!");
         numOfEnemyShips--;
@@ -240,12 +236,15 @@ const myTurn = () => {
         enemyShipsGrid[enemyShipPosition[0]][enemyShipPosition[1]] = "H";
         console.table(enemyShipsGrid);
         enemyShipCoordinate3 = "";
+
     } else {
         console.log("You missed!");
         friendlyMissiles--;
+
         if (enemyShipsGrid[enemyShipPosition[0]][enemyShipPosition[1]] == "H") {
             console.log("You have already hit this location!")
             console.table(enemyShipsGrid);
+
         } else {
             enemyShipsGrid[enemyShipPosition[0]][enemyShipPosition[1]] = "M";
             console.table(enemyShipsGrid);
@@ -258,9 +257,9 @@ const myTurn = () => {
 
 //matching if enemy shots hit my ships
 const enemyTurn = () => {
+    const randomLocation = randomCoordinates();
     console.log()
     console.log("Enemy turn!");
-    const randomLocation = randomCoordinates();
     console.log(`Enemy targets the ${randomLocation} coordinates!`);
 
     if (randomLocation == shipPosition1) {
@@ -310,8 +309,10 @@ while (
     console.log("---------------------------------------------------------------");
     console.log(`Round ${turnCounter}`);
     turnCounter++;
+
     myTurn();
     enemyTurn();
+
     console.log(`(Your Last tried location was: ${enemyShipPosition})`);
     console.log(`Number of your ships left: ${numOfFriendlyShips}`);
     console.log(`Number of enemy ships left: ${numOfEnemyShips}`);
