@@ -54,7 +54,6 @@ let shipPosition3 = "";
 
 let turnCounter = 1;
 
-
 //random Coordinates for enemy ships generator
 const randomCoordinates = () => {
     //random letter generator
@@ -154,7 +153,7 @@ const myTurn = () => {
     
     let condition = false;
     while (!condition) {
-        enemyShipPosition = prompt("Where is the enemy ship hiding, Captain? (A0, C3, ...): ").toUpperCase();
+        enemyShipPosition = prompt("Where is the enemy ship hiding, Captain? ").toUpperCase();
         console.log("---------------------------------------------------------------")
         console.log()
         if (!((enemyShipPosition[0] === "A" || enemyShipPosition[0] === "a" ||
