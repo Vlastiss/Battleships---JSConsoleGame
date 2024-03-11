@@ -70,7 +70,7 @@ let enemyShipCoordinate1 = randomCoordinates();
 let enemyShipCoordinate2 = randomCoordinates();
 let enemyShipCoordinate3 = randomCoordinates();
 
-
+// if generated coordinates are same, then we generate new random locations
 if (enemyShipCoordinate1 === enemyShipCoordinate2 ||
     enemyShipCoordinate1 === enemyShipCoordinate3 ||
     enemyShipCoordinate2 === enemyShipCoordinate3) {
@@ -173,13 +173,11 @@ const friendlyShipSelection = () => {
             condition = true;
         }
     }
-    // console.log(myShipsGrid)
-    // console.log()
 };
 
 //my turn selecting enemy ship
 const myTurn = () => {
-
+    console.log();
     console.log("Your turn!");
     console.log("Locate the enemy ship!");
 
@@ -247,13 +245,14 @@ const myTurn = () => {
             console.table(enemyShipsGrid);
         }
     }
-
-    console.log(`You have ${friendlyMissiles} missiles left`);
+    console.log();
+    prompt("Press ENTER to continue");
+    console.log("---------------------------------------------------------------");
 };
 
 //matching if enemy shots hit my ships
 const enemyTurn = () => {
-    // console.log("---------------------------------------------------------------")
+    console.log()
     console.log("Enemy turn!");
     const randomLocation = randomCoordinates();
     console.log(`Enemy targets the ${randomLocation} coordinates!`);
@@ -288,9 +287,10 @@ const enemyTurn = () => {
         enemyTryGrid[randomLocation[0]][randomLocation[1]] = "E";
         console.table(enemyTryGrid);
     }
-    console.log(`Enemy has ${enemyMissiles} missiles left`);
     console.log();
     prompt("Press ENTER to continue");
+    console.log("---------------------------------------------------------------");
+    console.log();
 };
 
 //MAIN GAME LOOP
@@ -301,25 +301,11 @@ while (
     friendlyMissiles > 0 &&
     enemyMissiles > 0
 ) {
-    console.log(
-        "---------------------------------------------------------------"
-    );
+    console.log("---------------------------------------------------------------");
     console.log(`Round ${turnCounter}`);
     turnCounter++;
-    console.log();
     myTurn();
-    console.log();
-    prompt("Press ENTER to continue");
-    console.log(
-        "---------------------------------------------------------------"
-    );
-    console.log();
     enemyTurn();
-    console.log();
-    console.log(
-        "---------------------------------------------------------------"
-    );
-    console.log();
     console.log(`(Your Last tried location was: ${enemyShipPosition})`);
     console.log(`Number of your ships left: ${numOfFriendlyShips}`);
     console.log(`Number of enemy ships left: ${numOfEnemyShips}`);
