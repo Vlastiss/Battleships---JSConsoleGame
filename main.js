@@ -1,8 +1,8 @@
 /*
 BattleShips!
 -Select 3 locations of your ship (A0 - E4);
--Randomly generate 3 enemy ship locations.
----while loop
+-Randomly generate 3 enemy ship locations.(automatic)
+---MAIN LOOP
     -Select a location of the enemy ship.
         if shot down:
             delete the ship from the grid
@@ -13,6 +13,12 @@ BattleShips!
             delete the ship from the grid
             update missiles
             display the updated grid
+
+- Characters on the grid
+    M = my Missed shot
+    E = enemey missed shot
+    X = locations of my ship
+    H = hitted ship
 */
 
 //Game Grids
